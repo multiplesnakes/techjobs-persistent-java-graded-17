@@ -1,14 +1,13 @@
 package org.launchcode.techjobs.persistent.controllers;
 
-import org.launchcode.techjobs.persistent.models.Job;
-import org.launchcode.techjobs.persistent.models.JobData;
-import org.launchcode.techjobs.persistent.models.data.JobRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+import org.launchcode.techjobs.persistent.models.*;
+import org.launchcode.techjobs.persistent.models.data.*;
+import org.springframework.beans.factory.annotation.*;
+import org.springframework.stereotype.*;
+import org.springframework.ui.*;
 import org.springframework.web.bind.annotation.*;
 
-import static org.launchcode.techjobs.persistent.controllers.ListController.columnChoices;
+import static org.launchcode.techjobs.persistent.controllers.ListController.*;
 
 /**
  * Created by LaunchCode
@@ -26,7 +25,6 @@ public class SearchController {
         return "search";
     }
 
-    // TODO #3 - Create a handler to process a search request and render the updated search view.
     @PostMapping("results")
     public String displaySearchResults(Model model, @RequestParam String searchType, @RequestParam String searchTerm){
         Iterable<Job> jobs;
